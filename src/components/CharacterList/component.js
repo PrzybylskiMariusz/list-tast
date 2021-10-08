@@ -7,13 +7,13 @@ export default {
   name: 'CharacterList',
   data () {
     return {
-      characters: ''
+      characters: []
     }
   },
   mounted () {
     axios.get(API)
       .then((response) => {
-        console.log(response)
+        this.characters = response.data.results
       })
       .catch((error) => {
         console.log(error)
