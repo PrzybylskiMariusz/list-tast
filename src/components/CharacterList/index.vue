@@ -1,6 +1,9 @@
 <template>
   <div class="CharacterList">
     CharacterList
+    <select v-model="selectedGender">
+      <option v-for="(choice, index) in gender" :key="index">{{ choice }}</option>
+    </select>
     <ul>
       <li v-for="(item, index) in charackters" :key="index">
         <p>{{ item.species }}</p>

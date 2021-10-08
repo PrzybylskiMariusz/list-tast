@@ -5,6 +5,9 @@ export default {
   name: 'CharacterList',
   data () {
     return {
+      items: [],
+      gender: ['unknown', 'Male', 'Female'],
+      selectedGender: ''
     }
   },
   mounted () {
@@ -13,6 +16,9 @@ export default {
   computed: {
     ...mapState([
       'charackters'
-    ])
+    ]),
+    filteredChars () {
+      return this.selectedGender ? this.items.filter(item => item.groups.map(group => group.name).some(this.selectedGender)) : this.items
+    }
   }
 }
