@@ -24,6 +24,16 @@ export default new Vuex.Store({
           const charackters = response.data.results
           commit('SET_CHARS', charackters)
         })
+    },
+    filterCharackters ({ commit }, e) {
+      const selectedValue = e.target.options[e.target.options.selectedIndex].innerText
+
+      axios
+        .get(API + '/?gender=' + selectedValue)
+        .then(response => {
+          const charackters = response.data.results
+          commit('SET_CHARS', charackters)
+        })
     }
   },
   modules: {

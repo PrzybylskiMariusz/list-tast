@@ -1,5 +1,5 @@
 // @vue/component
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'CharacterList',
@@ -14,5 +14,6 @@ export default {
     ...mapState([
       'charackters'
     ])
-  }
+  },
+  methods: mapActions(['filterCharackters', 'loadCharackters'])
 }
