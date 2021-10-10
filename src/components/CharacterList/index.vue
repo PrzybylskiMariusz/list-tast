@@ -1,11 +1,14 @@
 <template>
   <div class="CharacterList">
     CharacterList
-    <select v-model="filteredChars">
-      <option v-for="(choice, index) in gender" :key="index">{{ choice }}</option>
+    <select v-model="selectedGender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="genderless">Genderless</option>
+      <option value="unknown">Unknown</option>
     </select>
     <ul>
-      <li v-for="(item, index) in charackters" :key="index">
+      <li v-for="(item, index) in filteredChars" :key="index">
         <p>{{ item.species }}</p>
         <h2>{{ item.name }}</h2>
         <img :src="item.image" alt="Charackter image">

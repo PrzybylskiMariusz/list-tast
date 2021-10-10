@@ -20,7 +20,7 @@ export default new Vuex.Store({
   actions: {
     loadCharackters ({ commit }) {
       axios
-        .get(API)
+        .get(API + '/?gender=' + this.selectedGender)
         .then(response => {
           console.log(response.data)
           const charackters = response.data.results
