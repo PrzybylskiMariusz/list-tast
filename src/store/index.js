@@ -8,7 +8,9 @@ const API = 'https://rickandmortyapi.com/api/character'
 
 export default new Vuex.Store({
   state: {
-    charackters: []
+    charackters: [],
+    gender: ['unknown', 'Male', 'Female'],
+    selectedGender: ''
   },
   mutations: {
     SET_CHARS (state, charackters) {
@@ -24,6 +26,9 @@ export default new Vuex.Store({
           const charackters = response.data.results
           commit('SET_CHARS', charackters)
         })
+    },
+    filteredChars () {
+      return this.selectedGender ? this.charackters.filter(item => item.groups.map(group => group.name).some(this.selectedGender)) : this.charackters
     }
   },
   modules: {

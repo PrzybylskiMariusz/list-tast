@@ -1,7 +1,7 @@
 <template>
   <div class="CharacterList">
     CharacterList
-    <select v-model="selectedGender">
+    <select v-model="filteredChars">
       <option v-for="(choice, index) in gender" :key="index">{{ choice }}</option>
     </select>
     <ul>

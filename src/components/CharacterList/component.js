@@ -1,13 +1,10 @@
 // @vue/component
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'CharacterList',
   data () {
     return {
-      items: [],
-      gender: ['unknown', 'Male', 'Female'],
-      selectedGender: ''
     }
   },
   mounted () {
@@ -15,10 +12,14 @@ export default {
   },
   computed: {
     ...mapState([
-      'charackters'
-    ]),
-    filteredChars () {
-      return this.selectedGender ? this.items.filter(item => item.groups.map(group => group.name).some(this.selectedGender)) : this.items
-    }
+      'charackters',
+      'gender',
+      'selectedGender'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'filteredChars'
+    ])
   }
 }
