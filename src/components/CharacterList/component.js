@@ -12,14 +12,8 @@ export default {
   },
   computed: {
     ...mapState([
-      'charackters',
-      'gender',
-      'selectedGender'
+      'charackters'
     ])
   },
-  methods: {
-    ...mapActions([
-      'filteredChars'
-    ])
-  }
+  methods: mapActions(['filterCharackters', 'loadCharackters'])
 }
