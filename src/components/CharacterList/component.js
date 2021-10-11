@@ -1,19 +1,23 @@
 // @vue/component
 import { mapActions, mapState } from 'vuex'
+import FilterGender from '@/components/FilterGender'
 
 export default {
   name: 'CharacterList',
+  components: {
+    FilterGender
+  },
   data () {
     return {
     }
   },
   mounted () {
-    this.$store.dispatch('loadCharackters')
+    this.$store.dispatch('loadCharacters')
   },
   computed: {
     ...mapState([
-      'charackters'
+      'characters'
     ])
   },
-  methods: mapActions(['filterCharackters', 'loadCharackters'])
+  methods: mapActions(['loadCharacters'])
 }
