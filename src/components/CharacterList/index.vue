@@ -11,6 +11,7 @@
         <p><span>Gender: </span>{{ item.gender }}</p>
         <p><span>Status: </span>{{ item.status }}</p>
         <p><span>Type: </span>{{ item.type }}</p>
+        <p><span>Created: </span>{{ item.created }}</p>
       </li>
     </ul>
   </div>
